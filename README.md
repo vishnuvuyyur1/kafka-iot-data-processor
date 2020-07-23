@@ -8,6 +8,7 @@ Kafka project <br>
   suitable intermediate tool for the data integration kicks in by triggering a schedule task which send out a value every second mimicing an IOT device as the entry point of published messages, 
 - These messages are then forwarded to a Kafka broker running locally in order to fault-tolerant stream processing and parallel topic consumption.
 - Kafka Consumer is  the service that will be responsible for reading messages processing them according to the needs of your own business logic which in our case storing them in DB.
+- Big Data, for data processing Hadoop is a framework that can process large data sets across clusters; Spark is a unified analytics engine for large scale data processing. and can be combined together but is not considered for the scope of this project development.
 - We utilize Spring Data JPA, In memory H2DB to implement the data storage, which consume messages from the Kafka broker. Finally, the produced data of the IoT
   is stored in our DB for further processing.
 - The user can query the readings of specific sensor groups
