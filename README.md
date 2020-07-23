@@ -35,6 +35,15 @@ Kafka project <br>
  - If you see error in Kafka server such as org.apache.kafka.clients.NetworkClient then go to config/server.properties and add this advertised.listeners=PLAINTEXT://localhost:9092 is what clients will use to connect to the brokers.
  - Next run the spring boot project from an IDE
  
+  ## Approach
+  - The API call to /start endpoint will trigger scheduling which will enable 3 IOT devices to send out a value every second.
+  - Until the API call /stop is called the IOT devices keep sending out a value every second.
+  - The IOT device data is processed in parallel and stored in DB
+  - The user can query readings (e.g average/median/max/min values) of specific IOT sensors
+  
+  ## Limitatin
+ - Not a limitation, at this moment the user cannot be able to querying the readings (e.g average/median/max/min values) of specific sensors or groups of sensors for a specific timeframe.
+ - Additional features can be added.
  # API Documentation
   Base URL: http://localhost:8080/ <br>
   Operations:
