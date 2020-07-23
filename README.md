@@ -106,3 +106,18 @@ Response
 ## Notes:
 - The project is a prototype for demo purpose.
 - It does requires standardizing.
+
+## Useful commands:
+- Create topics<br>
+.\bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic THERMOSTAT_METER <br>
+
+ .\bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic HEART_METER <br>
+
+- List the topics <br>
+.\bin\windows\kafka-topics.bat --list --zookeeper localhost:2181 <br>
+
+- Produce data to a topic <br>
+.\bin\windows\kafka-console-producer --broker-list localhost:9092 --topic THERMOSTAT_METER <br>
+
+- Consume data from a topic <br>
+.\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic THERMOSTAT_METER  --from-beginning <br>
