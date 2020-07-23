@@ -34,3 +34,60 @@ Kafka project <br>
   - If you see error in Kafka server such then go to config/server.properties and add this listeners=PLAINTEXT://localhost:9092 is what the broker will use to create server sockets.
  - If you see error in Kafka server such as org.apache.kafka.clients.NetworkClient then go to config/server.properties and add this advertised.listeners=PLAINTEXT://localhost:9092 is what clients will use to connect to the brokers.
  - Next run the spring boot project from an IDE
+ 
+ # API Documentation
+  Base URL: http://localhost:8080/ <br>
+  Operations:
+  
+  |No| Operation | Endpoint | Method
+|----|---|---|---|
+|1| start scheduling  |/start| POST |
+|2| stop scheduling | /stop | POST |
+|3| get query readings |/iotdata |GET | 
+
+## 1. start scheduling
+- URI: /start
+- Method: POST
+<br>
+Request Body : None <br>
+Request Body : Started Scheduling <br>
+
+## 2. get query readings
+- URI: /stop
+- Method: POST
+<br>
+Request Body : None <br>
+Request Body : Stopped Scheduling <br>
+
+## 3. get query readings
+- URI: /iotdata
+- Method: GET
+<br>
+Request Body
+
+  |Attributes|Type|Validation | Required |
+|----|---|---|---|
+|deviceType|ENUM | THERMOSTAT_METER/HEART_METER/CARFUEL_METER| yes|
+|queryType|ENUM | AVERAGE/MAX/MIN | yes |
+
+```
+{
+    "deviceType": "HEART_METER",
+    "queryType": "MIN"
+}
+```
+Response 
+ |Attributes|Type|
+|----|---|
+|deviceType|ENUM | 
+|queryType|ENUM | 
+|queryValue|int | 
+
+```
+{
+    "queryType": "MIN",
+    "deviceType": "HEART_METER",
+    "queryValue": "62"
+}
+```
+
