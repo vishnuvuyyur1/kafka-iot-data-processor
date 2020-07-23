@@ -37,8 +37,8 @@ Kafka project <br>
  - Next run the spring boot project from an IDE
  
   ## Approach
-  - The API call to /start endpoint will trigger scheduling which will enable 3 IOT devices to send out a value every second.
-  - Until the API call /stop is called the IOT devices keep sending out a value every second.
+  - The API call to '/start' endpoint will trigger scheduling which will enable 3 IOT devices to send out a value every second.
+  - Until the API call '/stop' is called the IOT devices keep sending out a value every second.
   - The IOT device data is processed in parallel and stored in DB
   - The user can query readings (e.g average/median/max/min values) of specific IOT sensors
   
@@ -53,7 +53,7 @@ Kafka project <br>
 |----|---|---|---|
 |1| start scheduling  |/start| POST |
 |2| stop scheduling | /stop | POST |
-|3| get query readings(protected) |/iotdata |GET | 
+|3| get query readings|/iotdata (protected) |GET | 
 
 ## 1. start scheduling
 - URI: /start
