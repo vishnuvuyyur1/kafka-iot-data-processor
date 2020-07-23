@@ -48,7 +48,6 @@ public class IOTDeviceDataQueryService implements IIOTDeviceDataQueryService{
 				.map(meterData -> new IotData(meterData.getDeviceType(),meterData.getReadingValue(), meterData.getReadingUnit()))
 			    .collect(Collectors.toList());
 		String calculatedReading = getCalculatedReadings(queryRequest, iotData);
-		System.out.println("Teststing " + carMeterReadings.get(0).getDeviceType());
 		QueryResponse queryResponse = buildQueryResponse(queryRequest, calculatedReading);
 		return queryResponse;
 	}
