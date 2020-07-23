@@ -16,9 +16,10 @@ Kafka project <br>
 - Apache kafka 2+
 - Java 11
 - Spring Boot 2+
-- Spring security
+- Spring security 
 - JPA
 - In Memory DB
+- Maven build
   
  ## Running Instructions Locally
  Prerequisites:
@@ -45,7 +46,7 @@ Kafka project <br>
  - Not a limitation, at this moment the user cannot be able to querying the readings (e.g average/median/max/min values) of specific sensors or groups of sensors for a specific timeframe.
  - Additional features can be added.
  # API Documentation
-  Base URL: http://localhost:8080/ <br>
+  Base URL: http://localhost:8080/processor <br>
   Operations:
   
   |No| Operation | Endpoint | Method
@@ -61,16 +62,19 @@ Kafka project <br>
 Request Body : None <br>
 Response Body : Started Scheduling <br>
 
-## 2. get query readings
+## 2. stop scheduling
 - URI: /stop
 - Method: POST
 <br>
 Request Body : None <br>
 Response Body : Stopped Scheduling <br>
 
-## 3. get query readings
+## 3. get query readings (protected: Requires authentication)
 - URI: /iotdata
 - Method: GET
+- Authentication type: Basic
+- username: admin
+- password: password
 <br>
 Request Body
 
@@ -99,4 +103,5 @@ Response
     "queryValue": "62"
 }
 ```
-
+## Notes:
+- The project is a prototype for demo purpose.
