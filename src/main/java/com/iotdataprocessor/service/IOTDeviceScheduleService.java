@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class IOTDeviceScheduleService {
 	
-	 protected String publishEndpoint = "http://localhost:8080/iotdata";
+	 protected String publishEndpoint = "http://localhost:8080/processor/iotdata";
 	
 	@Autowired
     private RestTemplate restTemplate;

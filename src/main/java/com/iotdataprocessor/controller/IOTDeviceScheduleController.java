@@ -32,8 +32,8 @@ public class IOTDeviceScheduleController {
     }
 
     @PostMapping(value = "/stop")
-    ResponseEntity<Void> stop() {
+    ResponseEntity<String> stop() {
         scheduledFuture.cancel(false);
-        return new ResponseEntity<Void>(HttpStatus.OK);
+        return new ResponseEntity<String>("Sopped Scheduling",HttpStatus.OK);
     }
 }
