@@ -53,7 +53,7 @@ Kafka project <br>
 |----|---|---|---|
 |1| start scheduling  |/start| POST |
 |2| stop scheduling | /stop | POST |
-|3| get query readings |/iotdata |GET | 
+|3| get query readings(protected) |/iotdata |GET | 
 
 ## 1. start scheduling
 - URI: /start
