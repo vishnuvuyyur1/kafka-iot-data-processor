@@ -11,5 +11,26 @@ Kafka project <br>
 - We utilize Spring Data JPA, In memory H2DB to implement the data storage, which consume messages from the Kafka broker. Finally, the produced data of the IoT
   is stored in our DB for further processing.
 - The user can query the readings of specific sensor groups
+
+## Tech stack
+- Apache kafka 2+
+- Java 11
+- Spring Boot 2+
+- Spring security
+- JPA
+- In Memory DB
   
+ ## Running Instructions Locally
+ Prerequisites:
+ - Windows os
+ - Download kafka from :https://kafka.apache.org/quickstart#quickstart_download
+ - Unzip the folder using 7-zip or winrar
+ - Rename the folder to kafka and place the folder in C: drive and the final path looks like C:\kafka
  
+ Runnign the project
+ - From command prompt Go to  C:\kafka
+ - First statr the zookeeper cmd: .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+ - Next start kafka server cmd: .\bin\windows\kafka-server-start.bat .\config\server.properties
+  - If you see error in Kafka server such then go to config/server.properties and add this listeners=PLAINTEXT://localhost:9092 is what the broker will use to create server sockets.
+ - If you see error in Kafka server such as org.apache.kafka.clients.NetworkClient then go to config/server.properties and add this advertised.listeners=PLAINTEXT://localhost:9092 is what clients will use to connect to the brokers.
+ - Next run the spring boot project from an IDE
