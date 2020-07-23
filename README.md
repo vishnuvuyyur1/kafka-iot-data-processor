@@ -16,9 +16,10 @@ Kafka project <br>
 - Apache kafka 2+
 - Java 11
 - Spring Boot 2+
-- Spring security
+- Spring security 
 - JPA
 - In Memory DB
+- Maven build
   
  ## Running Instructions Locally
  Prerequisites:
@@ -36,8 +37,8 @@ Kafka project <br>
  - Next run the spring boot project from an IDE
  
   ## Approach
-  - The API call to /start endpoint will trigger scheduling which will enable 3 IOT devices to send out a value every second.
-  - Until the API call /stop is called the IOT devices keep sending out a value every second.
+  - The API call to '/start' endpoint will trigger scheduling which will enable 3 IOT devices to send out a value every second.
+  - Until the API call '/stop' is called the IOT devices keep sending out a value every second.
   - The IOT device data is processed in parallel and stored in DB
   - The user can query readings (e.g average/median/max/min values) of specific IOT sensors
   
@@ -45,32 +46,35 @@ Kafka project <br>
  - Not a limitation, at this moment the user cannot be able to querying the readings (e.g average/median/max/min values) of specific sensors or groups of sensors for a specific timeframe.
  - Additional features can be added.
  # API Documentation
-  Base URL: http://localhost:8080/ <br>
+  Base URL: http://localhost:8080/processor <br>
   Operations:
   
   |No| Operation | Endpoint | Method
 |----|---|---|---|
 |1| start scheduling  |/start| POST |
 |2| stop scheduling | /stop | POST |
-|3| get query readings |/iotdata |GET | 
+|3| get query readings|/iotdata (protected) |GET | 
 
 ## 1. start scheduling
 - URI: /start
 - Method: POST
 <br>
 Request Body : None <br>
-Request Body : Started Scheduling <br>
+Response Body : Started Scheduling <br>
 
-## 2. get query readings
+## 2. stop scheduling
 - URI: /stop
 - Method: POST
 <br>
 Request Body : None <br>
-Request Body : Stopped Scheduling <br>
+Response Body : Stopped Scheduling <br>
 
-## 3. get query readings
+## 3. get query readings (protected: Requires authentication)
 - URI: /iotdata
 - Method: GET
+- Authentication type: Basic
+- username: admin
+- password: password
 <br>
 Request Body
 
@@ -99,4 +103,5 @@ Response
     "queryValue": "62"
 }
 ```
-
+## Notes:
+- The project is a prototype for demo purpose.
