@@ -59,14 +59,14 @@ Kafka project <br>
 - Method: POST
 <br>
 Request Body : None <br>
-Request Body : Started Scheduling <br>
+Response Body : Started Scheduling <br>
 
 ## 2. get query readings
 - URI: /stop
 - Method: POST
 <br>
 Request Body : None <br>
-Request Body : Stopped Scheduling <br>
+Response Body : Stopped Scheduling <br>
 
 ## 3. get query readings
 - URI: /iotdata
