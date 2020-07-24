@@ -42,6 +42,7 @@ Kafka project <br>
   - Until the API call '/stop' is called the IOT devices keep sending out a value every second.
   - The IOT device data is processed in parallel and stored in DB
   - The user can query readings (e.g average/median/max/min values) of specific IOT sensors
+  - The end poioint for user to query reading is secured with basic authentication and requireds passing of credentials to get readings data.
   
   ## Limitatin
  - Not a limitation, at this moment the user cannot be able to querying the readings (e.g average/median/max/min values) of specific sensors or groups of sensors for a specific timeframe.
